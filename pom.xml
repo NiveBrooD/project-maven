@@ -64,7 +64,8 @@
                 </configuration>
             </plugin>
 
-<!--            Установка артефакта из либ в локальный репозиторий -->
+<!--            Установка артефакта из либ в локальный репозиторий-->
+<!--            (А при этом плагине нужно сначала его добавить в локал репо вызвав mvn validate)-->
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
 <!--                <artifactId>maven-install-plugin</artifactId>-->
@@ -140,6 +141,7 @@
                 </configuration>
             </plugin>
 
+<!--            Тоже самое, что и <resources/> ниже, сначала сделал так, но жалко удалять-->
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
 <!--                <artifactId>maven-resources-plugin</artifactId>-->
