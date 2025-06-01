@@ -28,9 +28,9 @@
             <groupId>com.javarush</groupId>
             <artifactId>desktop-game-engine</artifactId>
             <version>1.0</version>
-<!--           Снизу добавил, чтобы он искал не в .m2, а в конкретной директории -->
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/desktop-game-engine.jar</systemPath>
+<!--&lt;!&ndash;           Снизу добавил, чтобы он искал не в .m2, а в конкретной директории &ndash;&gt;-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/lib/desktop-game-engine.jar</systemPath>-->
         </dependency>
 
         <dependency>
