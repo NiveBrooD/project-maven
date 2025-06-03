@@ -17,7 +17,7 @@
         <repository>
             <id>localRepo</id>
             <name>local repository</name>
-            <url>file://${basedir}/lib</url>
+            <url>file:///${project.basedir}/lib</url>
         </repository>
     </repositories>
 
@@ -36,9 +36,6 @@
             <groupId>com.javarush</groupId>
             <artifactId>desktop-game-engine</artifactId>
             <version>1.0</version>
-<!--&lt;!&ndash;           Снизу добавил, чтобы он искал не в .m2, а в конкретной директории &ndash;&gt;-->
-<!--            <scope>system</scope>-->
-<!--            <systemPath>${basedir}/lib/desktop-game-engine-1.0.jar</systemPath>-->
         </dependency>
 
         <dependency>
@@ -71,31 +68,6 @@
                     <mainClass>com.javarush.games.racer.RacerGame</mainClass>
                 </configuration>
             </plugin>
-
-<!--            Установка артефакта из либ в локальный репозиторий-->
-<!--            (А при этом плагине нужно сначала его добавить в локал репо вызвав mvn validate)-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-install-plugin</artifactId>-->
-<!--                <version>3.1.3</version>-->
-<!--                <configuration>-->
-<!--                    <groupId>com.javarush</groupId>-->
-<!--                    <artifactId>desktop-game-engine</artifactId>-->
-<!--                    <version>1.0</version>-->
-<!--                    <file>lib/com/javarush/desktop-game-engine/1.0/desktop-game-engine-1.0.jar</file>-->
-<!--                    <generatePom>true</generatePom>-->
-<!--                    <packaging>jar</packaging>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>install-jar-lib</id>-->
-<!--                        <phase>validate</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>install-file</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 
 <!--            Создание манифеста-->
             <plugin>
@@ -150,31 +122,31 @@
             </plugin>
 
 <!--            Тоже самое, что и <resources> ниже, сначала сделал так, но жалко удалять-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-resources-plugin</artifactId>-->
-<!--                <version>3.3.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>copy-resources</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>copy-resources</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <outputDirectory>${project.build.directory}/classes/lib</outputDirectory>-->
-<!--                            <resources>-->
-<!--                                <resource>-->
-<!--                                    <directory>${project.build.directory}/dependencies</directory>-->
-<!--                                    <includes>-->
-<!--                                        <include>*.jar</include>-->
-<!--                                    </includes>-->
-<!--                                </resource>-->
-<!--                            </resources>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes/lib</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/dependencies</directory>
+                                    <includes>
+                                        <include>*.jar</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
 
